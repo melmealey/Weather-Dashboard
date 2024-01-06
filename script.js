@@ -1,7 +1,11 @@
 
 //variables
-let searchBox = document.getElementById('searchBox');
-const searchBtn = document.getElementById('search');
+const APIKey = 'ef2e17d0ac82b47460af0e3eef68995c';
+const city = '';
+const queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
+
+const searchBtn = document.getElementById('searchBtn');
 
 const saveSearch = () => {
   const input = {
@@ -9,11 +13,33 @@ const saveSearch = () => {
   }
   console.log('click');
 
+const GetInfo = () => {
+    let searchBox = document.getElementById('searchBox');
+    let locationName = document.getElementById('locationName');
+    locationName.innerHTML ='--'+newName.value+'--';
 }
+
+fetch ('http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;')
+.then (response => response.json())
+.then (data => {
+    for (i = 0; i <5; i++){
+        document.getElementById ('day')
+    }
+})
+}
+
+
+
 searchBtn.addEventListener('click', function() {
     console.log('Button clicked');
     saveSearch();
   });
+
+
+
+//   fetch(queryURL)
+
+
 // searchBtn.addEventListener('click', saveSearch);
 
 // //Save and display scores

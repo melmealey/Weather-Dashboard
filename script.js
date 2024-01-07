@@ -27,26 +27,30 @@ const GetInfo = () => {
     fetch(queryURL1)
         .then(response1 => response1.json())
         .then(data1 => {
-            console.log(data1);
+
+            const lat = data1.lat;
+            const lon = data1.lon;
+
+            console.log(data1[0].lat);
+            console.log(data1[0].lon);
+
+           
 
             const queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=ef2e17d0ac82b47460af0e3eef68995c`;
             fetch(queryURL2)
                 .then(response2 => response2.json())
                 .then(data2 => {
-                    console.log(data2[0].lat);
-                    console.log(data2[0].lon);
+                        console.log(data2);
+                    })
                 })
-            const lat = data[0].lat;
-            const lon = data[0].lon;
+           
 
             //         for (i = 0; i < 5; i++) {
             //           const icon = data1.weather[i].icon;
             //           const iconURL = "http://openweathermap.org/img/w/10d.png";
             //           document.getElementById('img' + (i + 1)).src = iconURL1;
             //         }
-        });
-};
-
+        };
 
 
 const weekDay = () => {

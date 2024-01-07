@@ -28,29 +28,53 @@ const GetInfo = () => {
         .then(response1 => response1.json())
         .then(data1 => {
 
-            const lat = data1.lat;
-            const lon = data1.lon;
+            const lat = data1[0].lat;
+            const lon = data1[0].lon;
 
             console.log(data1[0].lat);
             console.log(data1[0].lon);
-
-           
 
             const queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=ef2e17d0ac82b47460af0e3eef68995c`;
             fetch(queryURL2)
                 .then(response2 => response2.json())
                 .then(data2 => {
-                        console.log(data2);
-                    })
+                    console.log(data2);
                 })
-           
+        })
 
-            //         for (i = 0; i < 5; i++) {
-            //           const icon = data1.weather[i].icon;
-            //           const iconURL = "http://openweathermap.org/img/w/10d.png";
-            //           document.getElementById('img' + (i + 1)).src = iconURL1;
-            //         }
-        };
+    //Save and display recent searches
+
+// Define an array to store the recent searches
+let inputCity = [];
+
+// Function to save the city search
+const saveSearches = () => {
+  const citySearch = document.getElementById('citySearch');
+  const input = {
+    city: citySearch.value,
+  };
+  inputCity.push(input);
+  localStorage.setItem("inputCity", JSON.stringify(inputCity));
+  displayRecentSearches();
+};
+
+// Function to display the recent searches
+const displayRecentSearches = () => {
+  const cityList = document.getElementById('cityList');
+  cityList.textContent = "";
+  for (let i = 0; i < inputCity.length; i++) {
+    let button = document.createElement('button');
+    button.textContent = inputCity[i].city;
+    cityList.appendChild(button);
+  }
+};
+
+// Call the displayRecentSearches function when the page loads
+displayRecentSearches();
+    
+};
+
+
 
 
 const weekDay = () => {

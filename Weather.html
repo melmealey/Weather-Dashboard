@@ -15,7 +15,9 @@
     <center>
         <h2>
             <section>
-                Search anywhere: <input type="text" id="searchBox">
+                <input type="text" id="citySearch" placeholder="Enter a city">
+                <!-- <button onclick="saveSearches()">Save Search</button>
+                 <div id="cityList"></div> -->
                 <button onClick='GetInfo()' id="searchBtn">Search</button>
             </section>
         </h2>
@@ -24,43 +26,55 @@
     </center>
     <div>
         <div id='weatherContainer'>
-            <div class="weather-icon"><img src="http://openweathermap.org/img/wn/10d@2x.png" />
             <div class='icons'>
-                
                 <p class='weather' id='day1'></p>
-                <div class='image'><img src='iconURL' class="imgClass" id='img1' alt=''></div>
-                <p class='minTemp' id='day1Min'>Min temp</p>
-                <p class='maxTemp' id='day1Max'>Max temp</p>
+                <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img1'
+                        alt=''></div>
+                <p class='temp' id='day1Temp'>Temp</p>
+                <p class='humidity' id='humidity'>Humidity</p>
+                <p class='windSpeed' id='windSpeed'>Wind Speed</p>
             </div>
             <div class='icons'>
                 <p class='weather' id='day2'></p>
-                <div class='image'><img src='iconURL' class="imgClass" id='img2' alt=''></div>
-                <p class='minTemp' id='day2Min'>Min temp</p>
-                <p class='maxTemp' id='day2Max'>Max temp</p>
+                <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img2'
+                        alt=''></div>
+                <p class='temp' id='day2Temp'>Temp</p>
+                <p class='humidity' id='humidity'>Humidity</p>
+                <p class='windSpeed' id='windSpeed'>Wind Speed</p>
             </div>
             <div class='icons'>
                 <p class='weather' id='day3'></p>
-                <div class='image'><img src='iconURL' class="imgClass" id='img3' alt=''></div>
-                <p class='minTemp' id='day3Min'>Min temp</p>
-                <p class='maxTemp' id='day3Max'>Max temp</p>
+                <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img3'
+                        alt=''></div>
+                <p class='temp' id='day3Temp'>Temp</p>
+                <p class='humidity' id='humidity'>Humidity</p>
+                <p class='windSpeed' id='windSpeed'>Wind Speed</p>
             </div>
             <div class='icons'>
                 <p class='weather' id='day4'></p>
-                <div class='image'><img src='iconURL' class="imgClass" id='img4' alt=''></div>
-                <p class='minTemp' id='day4Min'>Min temp</p>
-                <p class='maxTemp' id='day4Max'>Max temp</p>
+                <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img4'
+                        alt=''></div>
+                <p class='temp' id='day4Temp'>Temp</p>
+                <p class='humidity' id='humidity'>Humidity</p>
+                <p class='windSpeed' id='windSpeed'>Wind Speed</p>
             </div>
             <div class='icons'>
                 <p class='weather' id='day5'></p>
-                <div class='image'><img src='iconURL' class="imgClass" id='img5' alt=''></div>
-                <p class='minTemp' id='day5Min'>Min temp</p>
-                <p class='maxTemp' id='day5Max'>Max temp</p>
+                <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img5'
+                        alt=''></div>
+                <p class='temp' id='day5Temp'>Temp</p>
+                <p class='humidity' id='humidity'>Humidity</p>
+                <p class='windSpeed' id='windSpeed'>Wind Speed</p>
             </div>
         </div>
-        </div>
+    </div>
 
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
+
+
+
+
 </body>
 
 </html>

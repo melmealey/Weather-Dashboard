@@ -15,19 +15,22 @@
     <center>
         <h2>
             <section>
-                <input type="text" id="citySearch" placeholder="Enter a city">
-                <!-- <button onclick="saveSearches()">Save Search</button>
-                 <div id="cityList"></div> -->
+                <input type="text" id="searchBox" placeholder="Enter a city">
+                <!-- <button onclick="saveSearches()">Save Search</button> -->
+                 <div id="cityList"></div>
                 <button onClick='GetInfo()' id="searchBtn">Search</button>
             </section>
         </h2>
 
-        <h3 id='locationName'>--Houston--</h3>
+        <h3 id='locationName'>--Cancun--</h3>
     </center>
     <div>
+        <p>5 Day Forecast</p>
         <div id='weatherContainer'>
+    
             <div class='icons'>
                 <p class='weather' id='day1'></p>
+                <p class='date' id='day1Date'>Date</p>
                 <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img1'
                         alt=''></div>
                 <p class='temp' id='day1Temp'>Temp</p>
@@ -36,6 +39,7 @@
             </div>
             <div class='icons'>
                 <p class='weather' id='day2'></p>
+                <p class='date' id='day2Date'>Date</p>
                 <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img2'
                         alt=''></div>
                 <p class='temp' id='day2Temp'>Temp</p>
@@ -44,6 +48,7 @@
             </div>
             <div class='icons'>
                 <p class='weather' id='day3'></p>
+                <p class='date' id='day3Date'>Date</p>
                 <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img3'
                         alt=''></div>
                 <p class='temp' id='day3Temp'>Temp</p>
@@ -52,6 +57,7 @@
             </div>
             <div class='icons'>
                 <p class='weather' id='day4'></p>
+                <p class='date' id='day4Date'>Date</p>
                 <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img4'
                         alt=''></div>
                 <p class='temp' id='day4Temp'>Temp</p>
@@ -60,6 +66,7 @@
             </div>
             <div class='icons'>
                 <p class='weather' id='day5'></p>
+                <p class='date' id='day5Date'>Date</p>
                 <div class='image'><img src='http://openweathermap.org/img/wn/10d@2x.png' class="imgClass" id='img5'
                         alt=''></div>
                 <p class='temp' id='day5Temp'>Temp</p>

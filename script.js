@@ -3,7 +3,7 @@ const searchBox = document.getElementById('searchBox');
 const day = new Date();
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
-let city = searchBox.value;
+
 const container = document.getElementById('weatherContainer');
 
 const saveSearch = () => {
@@ -12,7 +12,9 @@ const saveSearch = () => {
   console.log('click');
 }
 
-const GetInfo1 = async (url) => {
+
+
+const GetCityInfo = async (url) => {
   const response1 = await fetch(url);
   const data1 = await response1.json();
   console.log(data1);
@@ -21,10 +23,15 @@ const GetInfo1 = async (url) => {
   const lon = data1[0].lon;
 
   console.log(data1[0].name);
-  GetInfo2(lat, lon);
+
+  await GetWeatherInfo(lat, lon);
 }
 
-const GetInfo2 = async (lat, lon) => {
+const getWeatherForecast = async (url) => {
+    await GetCityInfo(url);
+  }
+
+const GetWeatherInfo = async (lat, lon) => {
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
   const response2 = await fetch(url);
   const data2 = await response2.json();
@@ -48,15 +55,16 @@ const GetInfo2 = async (lat, lon) => {
 }
 
 searchBtn.addEventListener('click', () => {
+  let city = searchBox.value;
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
-  GetInfo1(url);
+  getWeatherForecast(url);
 });
 
 const lastSearch = localStorage.getItem('lastSearch');
 if (lastSearch) {
   searchBox.value = lastSearch;
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
-  GetInfo1(url);
+  getWeatherForecast(url);
 }
 
 //   const url = 'http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c';

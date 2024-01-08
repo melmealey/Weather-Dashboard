@@ -4,103 +4,77 @@ const day = new Date();
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
 let city = searchBox.value;
-
-// let locationIcon = document.querySelector('.weather-icon');
-// const {icon} = data.weather[0];
-// locationIcon.innerHTML = <img src="icons/${icon}.png">;
+const container = document.getElementById('weatherContainer');
 
 const saveSearch = () => {
-    city = searchBox.value;
-    localStorage.setItem('lastSearch', city);
-    console.log('click');
+  city = searchBox.value;
+  localStorage.setItem('lastSearch', city);
+  console.log('click');
 }
 
 const GetInfo1 = async (url) => {
-    const response1 = await fetch(url);
-    const data1 = await response1.json();
-    console.log(data1);
+  const response1 = await fetch(url);
+  const data1 = await response1.json();
+  console.log(data1);
 
-    const container = document.getElementById('weatherContainer');
-    const lat = data1[0].lat;
-    const lon = data1[0].lon;
+  const lat = data1[0].lat;
+  const lon = data1[0].lon;
 
-    console.log(data1[0].lat);
-    console.log(data1[0].lon);
+  console.log(data1[0].name);
+  GetInfo2(lat, lon);
+}
 
-    const GetInfo2 = async (url) => {
-        const response2 = await fetch(url);
-        const data2 = await response2.json();
-        console.log(data2);
+const GetInfo2 = async (lat, lon) => {
+  const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+  const response2 = await fetch(url);
+  const data2 = await response2.json();
+  console.log(data2);
 
-    }
+  const locationName = document.createElement('div');
+  locationName.innerHTML = data2.name;
+  container.appendChild(locationName);
 
-    data1.forEach((city) => {
-        const locationName = document.createElement('div');
-        locationName.innerHTML = `$city.name`;
-        container.appendChild(locationName);
+  const temp = document.createElement('div');
+  temp.innerHTML = data2.main.temp;
+  container.appendChild(temp);
 
+  const humidity = document.createElement('div');
+  humidity.innerHTML = data2.main.humidity;
+  container.appendChild(humidity);
 
-        for (let i = 0; i < city.temp.length; i++) {
-            const temp = document.createElement('div');
-            temp.innerHTML = `$city.temp`;
-            container.appendChild(temp);
+  const windSpeed = document.createElement('div');
+  windSpeed.innerHTML = data2.wind.speed;
+  container.appendChild(windSpeed);
+}
 
-        }
-
-        for (let i = 0; i < city.humidity.length; i++) {
-            const humidity = document.createElement('div');
-            temp.innerHTML = `$city.humidity`;
-            container.appendChild(humidity);
-
-        }
-
-        for (let i = 0; i < city.windSpeed.length; i++) {
-            const windSpeed = document.createElement('div');
-            temp.innerHTML = `city.wind`;
-            container.appendChild(windSpeed);
-
-            console.log(data1.temp)
-            console.log(data1.humidity)
-            console.log(data1.windSpeed)
-
-
-        }
-
-    });
-};
-
-searchBtn.addEventListener('click', function (event) {
-    event.preventDefault()
-    let city = searchBox.value;
-
-    GetInfo1(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c`);
-
+searchBtn.addEventListener('click', () => {
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
+  GetInfo1(url);
 });
 
-    // GetInfo(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c`);
+const lastSearch = localStorage.getItem('lastSearch');
+if (lastSearch) {
+  searchBox.value = lastSearch;
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
+  GetInfo1(url);
+}
 
-    // const GetInfo = () => {
+//   const url = 'http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c';
+//   GetInfo1(url);
+  
+    // const searchBox = () => {
     //     let locationName = document.getElementById('locationName');
     //     locationName.innerHTML = '--' + searchBox.value + '--';
 
-    //     const queryURL1 = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c`;
-    //     fetch(queryURL1)
-    //         .then(response1 => response1.json())
-    //         .then(data1 => {
 
-    //             const lat = data1[0].lat;
-    //             const lon = data1[0].lon;
+// searchBtn.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     let city = searchBox.value;
 
-    //             console.log(data1[0].lat);
-    //             console.log(data1[0].lon);
-
-    //             const queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=ef2e17d0ac82b47460af0e3eef68995c`;
-    //             fetch(queryURL2)
-    //                 .then(response2 => response2.json())
-    //                 .then(data2 => {
-    //                     console.log(data2);
-    //                 })
-    //         })
+//     GetInfo1(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c`);
+    
+// });
+    
 
     //     //Save and display recent searches
 
@@ -143,7 +117,3 @@ searchBtn.addEventListener('click', function (event) {
     //         return day + d.getDay();
     //     }
     // }
-
-
-
-

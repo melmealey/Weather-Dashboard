@@ -1,18 +1,22 @@
+//variables
 const APIKey = 'ef2e17d0ac82b47460af0e3eef68995c';
 const searchBox = document.getElementById('searchBox');
 const day = new Date();
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
-
 const container = document.getElementById('weatherContainer');
 
-const saveSearch = () => {
-  city = searchBox.value;
-  localStorage.setItem('lastSearch', city);
-  console.log('click');
-}
 
+//function to save a list of the city searches
+// const searchCity = () => {
+//     let locationName = document.getElementById('locationName');
+//     locationName.innerHTML = '--' + searchInput.value + '--';
+//     city = searchInput.value;
+//     localStorage.setItem('lastSearch', city);
+  
+// searchCity ();
 
+// }
 
 const GetCityInfo = async (url) => {
   const response1 = await fetch(url);
@@ -31,6 +35,7 @@ const getWeatherForecast = async (url) => {
     await GetCityInfo(url);
   }
 
+  //Function to get the specific weather info for each city searched
 const GetWeatherInfo = async (lat, lon) => {
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
   const response2 = await fetch(url);
@@ -55,32 +60,24 @@ const GetWeatherInfo = async (lat, lon) => {
 }
 
 searchBtn.addEventListener('click', () => {
-  let city = searchBox.value;
+  let city = searchInput.value;
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
   getWeatherForecast(url);
 });
 
+//
 const lastSearch = localStorage.getItem('lastSearch');
 if (lastSearch) {
-  searchBox.value = lastSearch;
+  searchInput.value = lastSearch;
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
   getWeatherForecast(url);
+
 }
-
-//   const url = 'http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c';
-//   GetInfo1(url);
-  
-    // const searchBox = () => {
-    //     let locationName = document.getElementById('locationName');
-    //     locationName.innerHTML = '--' + searchBox.value + '--';
-
 
 // searchBtn.addEventListener('click', function (event) {
 //     event.preventDefault()
 //     let city = searchBox.value;
 
-//     GetInfo1(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ef2e17d0ac82b47460af0e3eef68995c`);
-    
 // });
     
 

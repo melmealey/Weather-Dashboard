@@ -19,21 +19,14 @@ const Dashboard =document.getElementById('Dashboard');
 // }
 
 const GetCityInfo = async (url) => {
-  console.log(url);
   const response1 = await fetch(url);
   const data1 = await response1.json();
   console.log(data1);
-
-  // const lat = data1[0].lat;
-  // const lon = data1[0].lon;
-
-  // console.log(data1[0].name);
 
   await GetWeatherInfo(data1.name);
 }
 
 const getWeatherForecast = async function(url) {
-  console.log(url);
     await GetCityInfo(url);
   }
 
@@ -46,14 +39,15 @@ container.textContent=""
   for (let i=2; i<data2.list.length; i=i+8){
 
     console.log(data2.list[i]);
+
 container.innerHTML += `<div class='icons'>
 <p class='weather' id='day1'></p>
 <p class='date' id='day1Date'>${dayjs.unix(data2.list[i].dt).format('MM/DD/YYYY')}</p>
 <div class='image'><img src='http://openweathermap.org/img/wn/${data2.list[i].weather[0].icon}@2x.png' class="imgClass" id='img1'
         alt=''></div>
-<p class='temp' id='day1Temp'>Temp:${data2.list[i].main.temp}</p>
-<p class='humidity' id='humidity'>Humidity</p>
-<p class='windSpeed' id='windSpeed'>Wind Speed</p>
+<p class='temp' id='day1Temp'>Temp: ${data2.list[i].main.temp} °F</p>
+<p class='humidity' id='humidity'>Humidity: ${data2.list[i].main.humidity}%</p>
+<p class='windSpeed' id='windSpeed'>Wind Speed: ${data2.list[i].wind.speed} MPH</p>
 </div>`
 
   }

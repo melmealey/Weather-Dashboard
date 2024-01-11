@@ -5,9 +5,9 @@ const day = new Date();
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
 const container = document.getElementById('weatherContainer');
+const Dashboard =document.getElementById('Dashboard');
 
-
-//function to save a list of the city searches
+// function to save a list of the city searches
 // const searchCity = () => {
 //     let locationName = document.getElementById('locationName');
 //     locationName.innerHTML = '--' + searchInput.value + '--';
@@ -19,61 +19,109 @@ const container = document.getElementById('weatherContainer');
 // }
 
 const GetCityInfo = async (url) => {
+  console.log(url);
   const response1 = await fetch(url);
   const data1 = await response1.json();
   console.log(data1);
 
-  const lat = data1[0].lat;
-  const lon = data1[0].lon;
+  // const lat = data1[0].lat;
+  // const lon = data1[0].lon;
 
-  console.log(data1[0].name);
+  // console.log(data1[0].name);
 
-  await GetWeatherInfo(lat, lon);
+  await GetWeatherInfo(data1.name);
 }
 
-const getWeatherForecast = async (url) => {
+const getWeatherForecast = async function(url) {
+  console.log(url);
     await GetCityInfo(url);
   }
 
   //Function to get the specific weather info for each city searched
-const GetWeatherInfo = async (lat, lon) => {
-  const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+const GetWeatherInfo = async (cityName) => {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKey}&units=imperial`;
   const response2 = await fetch(url);
   const data2 = await response2.json();
-  console.log(data2);
+container.textContent=""
+  for (let i=2; i<data2.list.length; i=i+8){
+
+    console.log(data2.list[i]);
+container.innerHTML += `<div class='icons'>
+<p class='weather' id='day1'></p>
+<p class='date' id='day1Date'>${dayjs.unix(data2.list[i].dt).format('MM/DD/YYYY')}</p>
+<div class='image'><img src='http://openweathermap.org/img/wn/${data2.list[i].weather[0].icon}@2x.png' class="imgClass" id='img1'
+        alt=''></div>
+<p class='temp' id='day1Temp'>Temp:${data2.list[i].main.temp}</p>
+<p class='humidity' id='humidity'>Humidity</p>
+<p class='windSpeed' id='windSpeed'>Wind Speed</p>
+</div>`
+
+  }
+
+// const container =document.getElementById('weatherContainer');
 
   const locationName = document.createElement('div');
   locationName.innerHTML = data2.name;
-  container.appendChild(locationName);
+  Dashboard.appendChild(locationName);
 
   const temp = document.createElement('div');
   temp.innerHTML = data2.main.temp;
-  container.appendChild(temp);
+  Dashboard.appendChild(temp);
 
   const humidity = document.createElement('div');
   humidity.innerHTML = data2.main.humidity;
-  container.appendChild(humidity);
+  Dashboard.appendChild(humidity);
 
   const windSpeed = document.createElement('div');
   windSpeed.innerHTML = data2.wind.speed;
-  container.appendChild(windSpeed);
+  Dashboard.appendChild(windSpeed);
 }
 
 searchBtn.addEventListener('click', () => {
   let city = searchInput.value;
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=imperial`;
   getWeatherForecast(url);
 });
 
 //
-const lastSearch = localStorage.getItem('lastSearch');
-if (lastSearch) {
-  searchInput.value = lastSearch;
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
-  getWeatherForecast(url);
+// const lastSearch = localStorage.getItem('lastSearch');
+// if (lastSearch) {
+//   searchInput.value = lastSearch;
+//   const url = `https://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
+//   getWeatherForecast(url);
+
+// }
+
+const saveCitySearch = () => {
+let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
+citySearches.push(city);
+localStorage.set
 
 }
-
+// saveCitySearch();
+// // Function to save a city search
+// function saveCitySearch(city) {
+//     // Retrieve the existing city searches from localStorage
+//     let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
+  
+//     // Add the new city to the array
+//     citySearches.push(city);
+  
+//     // Convert the array to a JSON string and save it in localStorage
+//     localStorage.setItem('citySearches', JSON.stringify(citySearches));
+//   }
+  
+//   // Function to display recent city searches
+//   function displayCitySearches() {
+//     // Retrieve the city searches from localStorage
+//     let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
+  
+//     // Display the city searches on the webpage
+//     citySearches.forEach(city => {
+//       // Display each city in the desired format (e.g., as a list item)
+//       // Example: document.getElementById('recent-searches').innerHTML += `<li>${city}</li>`;
+//     });
+//   }
 // searchBtn.addEventListener('click', function (event) {
 //     event.preventDefault()
 //     let city = searchBox.value;
@@ -81,10 +129,10 @@ if (lastSearch) {
 // });
     
 
-    //     //Save and display recent searches
+        // Save and display recent searches
 
-    //     // Define an array to store the recent searches
-    //     let inputCity = [];
+        // Define an array to store the recent searches
+        // let inputCity = [];
 
     // };
 

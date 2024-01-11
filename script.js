@@ -8,6 +8,7 @@ const container = document.getElementById('weatherContainer');
 const Dashboard =document.getElementById('Dashboard');
 
 // function to save a list of the city searches
+
 // const searchCity = () => {
 //     let locationName = document.getElementById('locationName');
 //     locationName.innerHTML = '--' + searchInput.value + '--';
@@ -154,13 +155,3 @@ localStorage.set
 
     // // Call the displayRecentSearches function when the page loads
     // displayRecentSearches();
-
-
-
-    // const weekDay = () => {
-    //     if (day + d.getDay() > 6)
-    //         return day + d.getDay() - 7;
-    //     else {
-    //         return day + d.getDay();
-    //     }
-    // }

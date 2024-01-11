@@ -2,13 +2,12 @@
 const APIKey = 'ef2e17d0ac82b47460af0e3eef68995c';
 const searchBox = document.getElementById('searchBox');
 const day = new Date();
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+// const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
 const container = document.getElementById('weatherContainer');
 const Dashboard =document.getElementById('Dashboard');
 
 // function to save a list of the city searches
-
 // const searchCity = () => {
 //     let locationName = document.getElementById('locationName');
 //     locationName.innerHTML = '--' + searchInput.value + '--';
@@ -90,7 +89,7 @@ searchBtn.addEventListener('click', () => {
 const saveCitySearch = () => {
 let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
 citySearches.push(city);
-localStorage.set
+localStorage.setItem('citySearches', JSON.stringify(citySearches));
 
 }
 // saveCitySearch();
@@ -155,3 +154,6 @@ localStorage.set
 
     // // Call the displayRecentSearches function when the page loads
     // displayRecentSearches();
+
+
+

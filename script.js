@@ -2,21 +2,10 @@
 const APIKey = 'ef2e17d0ac82b47460af0e3eef68995c';
 const searchBox = document.getElementById('searchBox');
 const day = new Date();
-// const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const searchBtn = document.getElementById('searchBtn');
 const container = document.getElementById('weatherContainer');
 const Dashboard =document.getElementById('Dashboard');
-
-// function to save a list of the city searches
-// const searchCity = () => {
-//     let locationName = document.getElementById('locationName');
-//     locationName.innerHTML = '--' + searchInput.value + '--';
-//     city = searchInput.value;
-//     localStorage.setItem('lastSearch', city);
-  
-// searchCity ();
-
-// }
+const locationName = document.createElement ('div');
 
 const GetCityInfo = async (url) => {
   const response1 = await fetch(url);
@@ -55,7 +44,7 @@ container.innerHTML += `<div class='icons'>
 // const container =document.getElementById('weatherContainer');
 
   const locationName = document.createElement('div');
-  locationName.innerHTML = data2.name;
+  locationName.innerHTML = cityName;
   Dashboard.appendChild(locationName);
 
   const temp = document.createElement('div');

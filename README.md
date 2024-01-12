@@ -1,7 +1,7 @@
 # Weather-Dashboard
 ## Weather Dashboard
 
-<img width="1435" alt="Screenshot 2024-01-10 at 11 26 29 PM" src="https://github.com/melmealey/Weather-Dashboard/assets/147653410/bd83515a-08cb-456e-bb15-5682b3f715c9">
+<img width="1436" alt="Screenshot 2024-01-11 at 10 31 23 PM" src="https://github.com/melmealey/Weather-Dashboard/assets/147653410/e54a9239-e890-465a-a766-bfd80c011f71">
 
 # Description
 This website will display the current temp in °F, humidity and wind speed (in MPH) for any city that you search. It will also store your previous seraches so that you can easily click most searched cities. 

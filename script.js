@@ -4,8 +4,8 @@ const searchBox = document.getElementById('searchBox');
 const day = new Date();
 const searchBtn = document.getElementById('searchBtn');
 const container = document.getElementById('weatherContainer');
-const Dashboard =document.getElementById('Dashboard');
-const locationName = document.createElement ('div');
+const Dashboard = document.getElementById('Dashboard');
+const locationName = document.createElement('div');
 
 const GetCityInfo = async (url) => {
   const response1 = await fetch(url);
@@ -15,21 +15,20 @@ const GetCityInfo = async (url) => {
   await GetWeatherInfo(data1.name);
 }
 
-const getWeatherForecast = async function(url) {
-    await GetCityInfo(url);
-  }
+const getWeatherForecast = async function (url) {
+  await GetCityInfo(url);
+}
 
-  //Function to get the specific weather info for each city searched
+//Function to get the specific weather info for each city searched
 const GetWeatherInfo = async (cityName) => {
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKey}&units=imperial`;
   const response2 = await fetch(url);
   const data2 = await response2.json();
-container.textContent=""
-  for (let i=2; i<data2.list.length; i=i+8){
+  container.textContent = ""
+  for (let i = 2; i < data2.list.length; i = i + 8) {
 
-    console.log(data2.list[i]);
-
-container.innerHTML += `<div class='icons'>
+    //container tht will store the current temp, humidity and wind speed for the next 5 days
+    container.innerHTML += `<div class='icons'>
 <p class='weather' id='day1'></p>
 <p class='date' id='day1Date'>${dayjs.unix(data2.list[i].dt).format('MM/DD/YYYY')}</p>
 <div class='image'><img src='http://openweathermap.org/img/wn/${data2.list[i].weather[0].icon}@2x.png' class="imgClass" id='img1'
@@ -40,8 +39,6 @@ container.innerHTML += `<div class='icons'>
 </div>`
 
   }
-
-// const container =document.getElementById('weatherContainer');
 
   const locationName = document.createElement('div');
   locationName.innerHTML = cityName;
@@ -66,83 +63,56 @@ searchBtn.addEventListener('click', () => {
   getWeatherForecast(url);
 });
 
-//
-// const lastSearch = localStorage.getItem('lastSearch');
-// if (lastSearch) {
-//   searchInput.value = lastSearch;
-//   const url = `https://api.openweathermap.org/geo/1.0/direct?q=${lastSearch}&limit=5&appid=${APIKey}`;
-//   getWeatherForecast(url);
-
-// }
-
 const saveCitySearch = () => {
-let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
-citySearches.push(city);
-localStorage.setItem('citySearches', JSON.stringify(citySearches));
+  let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
+  citySearches.push(city);
+  localStorage.setItem('citySearches', JSON.stringify(citySearches));
 
 }
-// saveCitySearch();
-// // Function to save a city search
-// function saveCitySearch(city) {
-//     // Retrieve the existing city searches from localStorage
-//     let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
-  
-//     // Add the new city to the array
-//     citySearches.push(city);
-  
-//     // Convert the array to a JSON string and save it in localStorage
-//     localStorage.setItem('citySearches', JSON.stringify(citySearches));
-//   }
-  
-//   // Function to display recent city searches
-//   function displayCitySearches() {
-//     // Retrieve the city searches from localStorage
-//     let citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
-  
-//     // Display the city searches on the webpage
-//     citySearches.forEach(city => {
-//       // Display each city in the desired format (e.g., as a list item)
-//       // Example: document.getElementById('recent-searches').innerHTML += `<li>${city}</li>`;
-//     });
-//   }
-// searchBtn.addEventListener('click', function (event) {
-//     event.preventDefault()
-//     let city = searchBox.value;
+//Function created to render the buttons for the searched cities
+const searchedCityButtons = (cityNames) => {
+  const cityButtonsContainer = document.getElementById('cityButtonsContainer');
+  cityButtonsContainer.innerHTML = '';
 
-// });
-    
+  cityNames.forEach((cityName) => {
+    const button = document.createElement('button');
+    button.textContent = cityName;
+    button.classList.add('city-button');
 
-        // Save and display recent searches
+    button.addEventListener('click', () => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}&units=imperial`;
+      getWeatherForecast(url);
+    });
 
-        // Define an array to store the recent searches
-        // let inputCity = [];
-
-    // };
-
-    // // Function to save the city search
-    // const saveSearches = () => {
-    //     const citySearch = document.getElementById('citySearch');
-    //     const input = {
-    //         city: citySearch.value,
-    //     };
-    //     inputCity.push(input);
-    //     localStorage.setItem("inputCity", JSON.stringify(inputCity));
-    //     displayRecentSearches();
-    // };
-
-    // // Function to display the recent searches
-    // const displayRecentSearches = () => {
-    //     const cityList = document.getElementById('cityList');
-    //     cityList.textContent = "";
-    //     for (let i = 0; i < inputCity.length; i++) {
-    //         let button = document.createElement('button');
-    //         button.textContent = inputCity[i].city;
-    //         cityList.appendChild(button);
-    //     }
-    // };
-
-    // // Call the displayRecentSearches function when the page loads
-    // displayRecentSearches();
+    cityButtonsContainer.appendChild(button);
+  });
 
 
+  searchedCityButtons(citySearches);
 
+};
+
+const citySearches = JSON.parse(localStorage.getItem('citySearches')) || [];
+
+
+const buttons = document.getElementById('button-container');
+for (let i = 0; i < cities.length; i++) {
+  const button = document.createElement('button');
+  button.textContent = cities[i];
+  button.classList.add('city-button');
+  GetWeatherInfo(cities[i]);
+
+};
+
+container.appendChild(button);
+
+console.log('Getting weather information for city:', city);
+
+
+button.addEventListener('click', function () {
+
+  console.log('What city was searched:', cities[i]);
+});
+
+
+container.appendChild(button);

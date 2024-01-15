@@ -6,6 +6,14 @@ const searchBtn = document.getElementById('searchBtn');
 const container = document.getElementById('weatherContainer');
 const Dashboard = document.getElementById('Dashboard');
 const locationName = document.createElement('div');
+let cities = document.getElementById('searchInput');
+
+const currentTemp = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+}
+
 
 const GetCityInfo = async (url) => {
   const response1 = await fetch(url);

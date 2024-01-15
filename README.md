@@ -4,7 +4,7 @@
 <img width="1436" alt="Screenshot 2024-01-11 at 10 31 23 PM" src="https://github.com/melmealey/Weather-Dashboard/assets/147653410/e54a9239-e890-465a-a766-bfd80c011f71">
 
 # Description
-This website will display the current temp in °F, humidity and wind speed (in MPH) for any city that you search. It will also store your previous seraches so that you can easily click most searched cities. Very handy when you have family all over and are interested in the weather they are experiencing. 
+This website will display the current temp in °F, humidity and wind speed (in MPH) for any city that you search. It will also store your previous seraches so that you can easily click most searched cities. Very handy when you have family all over the map and are interested in the weather they are experiencing. 
 
 # Intallation
 N/A
@@ -22,3 +22,4 @@ https://www.youtube.com/watch?v=QEu8_5bYm-w  I watched this tutorial to get some
 # License
 Please refer to the LICENSE in the repo.
 
+<!-- I would ask your tutor to help you focus on creating a current weather card, fetching the current weather data, and setting those city names as objects into an array in local storage. Those city names can then be retrieved from local storage and appended as buttons in a search history list so that repeat searches can be executed by clicking on them. You may want to comment out the 5-day forecast from both your HTML and JavaScript code, temporarily, so that you can work on the current weather without distraction. Ask your tutor about making sure previous cards are cleared when new searches are executed. Your repo could use a little organization. An 'assets' directory is a good place to put your CSS, script, and any image files you may have in. Don't forget to update any associated file paths if you move things around. Your challenges/projects are going to get a lot more complex, so make sure you're sticking to the recommended file structures and naming conventions as closely as possible. They are industry standards, and often have very specific reasons for being set up the way they are.  -->

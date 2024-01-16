@@ -17,9 +17,12 @@ https://www.36n.co/how-to#:~:text=Mac,Press%20Option%2DShift%2D8.  I used this w
 My tutor helped teach me about Bootstrap to format my page to look better.
 I used Ask BCS A LOT. Some of it was really helpful, some of it not so much. I am still learning to ask better questions. I also continued to use Xpert learning assistant for this project. 
 https://www.youtube.com/watch?v=QEu8_5bYm-w  I watched this tutorial to get some ideas for layout.
+https://www.etsy.com/listing/1517442023/blue-watercolor-mountain-range?gpla=1&gao=1&&utm_source=google&utm_medium=cpc&utm_campaign=shopping_us_d-art_and_collectibles-prints-digital_prints&utm_custom1=_k_CjwKCAiAzJOtBhALEiwAtwj8tk-CuQqlzcSA3j5RZ0xcL161TrhunRkZU2Y96QjhA65K3tyiVOUnQRoCEIAQAvD_BwE_k_&utm_content=go_2063077100_76452858215_367965823911_aud-1118323511438:pla-328046931108_c__1517442023_12768591&utm_custom2=2063077100&gad_source=1&gclid=CjwKCAiAzJOtBhALEiwAtwj8tk-CuQqlzcSA3j5RZ0xcL161TrhunRkZU2Y96QjhA65K3tyiVOUnQRoCEIAQAvD_BwE This is the website where I found my background photo.
 
 
 # License
 Please refer to the LICENSE in the repo.
 
-<!-- I would ask your tutor to help you focus on creating a current weather card, fetching the current weather data, and setting those city names as objects into an array in local storage. Those city names can then be retrieved from local storage and appended as buttons in a search history list so that repeat searches can be executed by clicking on them. You may want to comment out the 5-day forecast from both your HTML and JavaScript code, temporarily, so that you can work on the current weather without distraction. Ask your tutor about making sure previous cards are cleared when new searches are executed. Your repo could use a little organization. An 'assets' directory is a good place to put your CSS, script, and any image files you may have in. Don't forget to update any associated file paths if you move things around. Your challenges/projects are going to get a lot more complex, so make sure you're sticking to the recommended file structures and naming conventions as closely as possible. They are industry standards, and often have very specific reasons for being set up the way they are.  -->
+Grade Feedback>
+Those city names can then be retrieved from local storage and appended as buttons in a search history list so that repeat searches can be executed by clicking on them. 
+ Your repo could use a little organization. An 'assets' directory is a good place to put your CSS, script, and any image files you may have in. Don't forget to update any associated file paths if you move things around.

@@ -1,6 +1,6 @@
 # Weather-Dashboard
 
-<img width="1440" alt="Screenshot 2024-01-16 at 10 39 23 PM" src="https://github.com/melmealey/Scheduler/assets/147653410/f43aa171-022c-4f8b-a4c5-99dc9ef19fe1">
+<img width="1438" alt="Screenshot 2024-01-17 at 6 01 44 PM" src="https://github.com/melmealey/Weather-Dashboard/assets/147653410/2a1e3be3-a51d-4dea-a8d5-d5eee2005769">
 
 # Description
 This website will display the current temp in °F, humidity and wind speed (in MPH) for any city that you search. It will also store your previous seraches so that you can easily click most searched cities. Very handy when you have family all over the map and are interested in the weather they are experiencing. 

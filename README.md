@@ -1,7 +1,7 @@
 # Weather-Dashboard
 ## Weather Dashboard
 
-<img width="1436" alt="Screenshot 2024-01-11 at 10 31 23 PM" src="https://github.com/melmealey/Weather-Dashboard/assets/147653410/e54a9239-e890-465a-a766-bfd80c011f71">
+<img width="1440" alt="Screenshot 2024-01-16 at 10 39 23 PM" src="https://github.com/melmealey/Scheduler/assets/147653410/f43aa171-022c-4f8b-a4c5-99dc9ef19fe1">
 
 # Description
 This website will display the current temp in °F, humidity and wind speed (in MPH) for any city that you search. It will also store your previous seraches so that you can easily click most searched cities. Very handy when you have family all over the map and are interested in the weather they are experiencing. 
@@ -22,7 +22,3 @@ https://www.etsy.com/listing/1517442023/blue-watercolor-mountain-range?gpla=1&ga
 
 # License
 Please refer to the LICENSE in the repo.
-
-Grade Feedback>
-Those city names can then be retrieved from local storage and appended as buttons in a search history list so that repeat searches can be executed by clicking on them. 
- Your repo could use a little organization. An 'assets' directory is a good place to put your CSS, script, and any image files you may have in. Don't forget to update any associated file paths if you move things around.

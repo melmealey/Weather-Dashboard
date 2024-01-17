@@ -88,12 +88,12 @@ searchBtn.addEventListener('click', () => {
   }
 
 });
-
+//Retrieve searches from local storage and append them as buttons 
 const renderSearchHistory = () => {
   const cityList = JSON.parse(localStorage.getItem('cityList')) || [];
   const searchHistoryContainer = document.getElementById('searchHistoryContainer');
   searchHistoryContainer.innerHTML = '';
-  renderSearchHistory();
+
 
   cityList.forEach((city) => {
     const button = document.createElement('button');
@@ -113,3 +113,5 @@ searchBtn.addEventListener('click', () => {
 
 
 });
+
+renderSearchHistory();

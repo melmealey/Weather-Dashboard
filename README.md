@@ -1,5 +1,4 @@
 # Weather-Dashboard
-## Weather Dashboard
 
 <img width="1440" alt="Screenshot 2024-01-16 at 10 39 23 PM" src="https://github.com/melmealey/Scheduler/assets/147653410/f43aa171-022c-4f8b-a4c5-99dc9ef19fe1">
 
